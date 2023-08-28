@@ -38,8 +38,10 @@ public class Tabuleiro implements CampoObservador {
 
 	public void abrir(int linha, int coluna) {
 		try {
-			campos.parallelStream().filter(c -> c.getLinha() == linha && c.getColuna() == coluna).findFirst()
-					.ifPresent(c -> c.abrir());
+			campos.parallelStream()
+				.filter(c -> c.getLinha() == linha && c.getColuna() == coluna)
+				.findFirst()
+				.ifPresent(c -> c.abrir());
 		} catch (Exception e) {
 			// FIXME ajustar a implementação do método abrir
 			campos.forEach(c -> c.setAberto(true));
@@ -112,6 +114,7 @@ public class Tabuleiro implements CampoObservador {
 	private void mostrarMinas() {
 		campos.stream()
 			.filter(c -> c.isMinado())
+			.filter(c -> !c.isMinado())
 			.forEach(c -> c.setAberto(true));
 	}
 
