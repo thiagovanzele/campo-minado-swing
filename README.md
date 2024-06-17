@@ -29,10 +29,21 @@ Este é um projeto de **Campo Minado** desenvolvido em Java utilizando a bibliot
 
 Você pode ajustar as configurações do jogo editando as constantes no arquivo `CampoMinado.java`, como o tamanho do tabuleiro e o número de minas.
 
+## Configurações Personalizadas
+
+Você pode ajustar as configurações do jogo editando as constantes no arquivo `CampoMinado.java`, como o tamanho do tabuleiro e o número de minas.
+
+No construtor da classe `TelaPrincipal`, as configurações de dificuldade são definidas da seguinte maneira:
+
 ```java
-private static final int TAMANHO_TABULEIRO = 10; // Tamanho do tabuleiro (n x n)
-private static final int NUMERO_MINAS = 10;      // Número de minas no tabuleiro
-
-
-## Tecnologia usada 
-![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
+public TelaPrincipal() {
+    // Cria um tabuleiro com tamanho 16x16 e 50 minas
+    Tabuleiro tabuleiro = new Tabuleiro(16, 30, 50);
+    add(new PainelTabuleiro(tabuleiro));
+    
+    setTitle("Campo Minado");
+    setSize(690, 438);
+    setLocationRelativeTo(null);
+    setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+    setVisible(true);
+}
