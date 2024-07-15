@@ -37,7 +37,7 @@ No construtor da classe `TelaPrincipal`, as configurações de dificuldade são 
 
 ```java
 public TelaPrincipal() {
-    // Cria um tabuleiro com tamanho 16x16 e 50 minas
+    // Cria um tabuleiro com tamanho 16x30 e 50 minas
     Tabuleiro tabuleiro = new Tabuleiro(16, 30, 50);
     add(new PainelTabuleiro(tabuleiro));
     
